@@ -8,7 +8,71 @@
 
 <body>
   <script>
+      
+      function capitalise(input) {
+      let lowerCase = input.toLowerCase();
+      let firstLetter = lowerCase.charAt(0);
+      return firstLetter.toUpperCase() + lowerCase.slice(1,);
+      }
+
+      function randomise(max) {
+        return Math.floor(Math.random()*max)+1;
+      }
   
+      function computerPlay(){
+      switch (randomise(3)){
+        case 1:
+          return "Rock";
+          break;
+        case 2:
+          return "Paper";
+          break;
+        case 3:
+          return "Scissors";
+          break;
+      }
+    }
+    
+  
+    
+    //const playerSelection = "Rock"
+    let playerScore = 0
+    let computerScore = 0
+
+    function playRound(playerSelection, computerSelection){
+      playerSelection = capitalise(playerSelection);
+      if (playerSelection === computerSelection){
+        return `You Drew! ... You and the Computer both selected ${playerSelection}.`;
+      } else if (playerSelection == "Rock" && computerSelection === "Scissors" ||
+                 playerSelection == "Scissors" && computerSelection === "Paper" ||
+                 playerSelection == "Paper" && computerSelection === "Rock"){
+        playerScore += 1;
+        return `You Win! ... ${playerSelection} beats ${computerSelection}.`;
+        } else {
+        computerScore += 1;
+        return `You Lose! ... ${computerSelection} beats ${playerSelection}.`;
+        }
+      }
+    
+    function game() {
+      for (let i=1; i <= 5; i++){
+       const computerSelection = computerPlay();
+       let playerSelection = window.prompt("Please choose: Rock Paper or Scissors");
+       console.log(playRound(playerSelection, computerSelection))
+       console.log(`Player: ${playerScore} Computer ${computerScore}`)
+      }
+      if (playerScore > computerScore){
+        console.log(`You win overall ${playerScore} - ${computerScore}`);
+      } else if (computerScore > playerScore){
+        console.log(`You lose overall ${playerScore} - ${computerScore}`);
+      } else {
+        console.log("You and the Computer drew overall!")
+      }
+    }
+    
+    
+    game();
+
   </script>
 
 
