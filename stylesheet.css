@@ -1,0 +1,16 @@
+body {
+	background-color: black;
+	font-size: 20px;
+	font-family: 'IBM Plex Mono', monospace;
+	color: rgb(66, 168, 66);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+button {
+	color: rgb(66, 168, 66);
+	background-color: black;
+	border: 5px;
+}
